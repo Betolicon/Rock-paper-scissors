@@ -1,4 +1,6 @@
 const choices = ['rock', 'paper', 'scissors'];
+let humanScore = 0
+let computerScore = 0
 
 const getComputerChoice = () => {
     let choice = Math.floor(Math.random()*3);
@@ -21,8 +23,6 @@ const getHumanChoice = () =>{
 }
 
 const playRound = (humanSelection, computerSelection) =>{
-    let humanScore = 0
-    let computerScore = 0
     if(humanSelection == 'rock' && computerSelection == 'scissors'){
         console.log("You win!! Rock beats scissors")
         humanScore ++}
@@ -50,6 +50,23 @@ const playRound = (humanSelection, computerSelection) =>{
     console.log(`Computer score: ${computerScore}`)
 }
 
-const humanSelection = getHumanChoice()
-const computerSelection = getComputerChoice()
-playRound(humanSelection, computerSelection)
+const totalScore = (humanScore, computerScore) =>{
+    if(humanScore > computerScore)
+        console.log(`You've won!!! Your score ${humanScore} / Computer score ${computerScore}`)
+    else if (computerScore > humanScore)
+        console.log(`You've lost :( Your score ${humanScore} / Computer score ${computerScore}`)
+    else
+        console.log(`It's a tie :| Your score ${humanScore} / Computer score ${computerScore}`)
+}
+
+const playGame = () => {
+    for(let i = 1; i <= 5; i++){
+        const humanSelection = getHumanChoice()
+        const computerSelection = getComputerChoice()
+        playRound(humanSelection, computerSelection)
+    }
+
+    totalScore(humanScore, computerScore)
+}
+
+playGame()
