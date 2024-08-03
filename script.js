@@ -52,11 +52,11 @@ const playRound = (humanSelection, computerSelection) =>{
 
 const totalScore = (humanScore, computerScore) =>{
     if(humanScore > computerScore)
-        console.log(`You've won!!! Your score ${humanScore} / Computer score ${computerScore}`)
+        alert(`You've won!!! Your score ${humanScore} / Computer score ${computerScore}`)
     else if (computerScore > humanScore)
-        console.log(`You've lost :( Your score ${humanScore} / Computer score ${computerScore}`)
+        alert(`You've lost :( Your score ${humanScore} / Computer score ${computerScore}`)
     else
-        console.log(`It's a tie :| Your score ${humanScore} / Computer score ${computerScore}`)
+        alert(`It's a tie :| Your score ${humanScore} / Computer score ${computerScore}`)
 }
 
 const playGame = () => {
