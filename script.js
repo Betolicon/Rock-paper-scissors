@@ -1,4 +1,9 @@
 const choices = ['rock', 'paper', 'scissors'];
+const message = document.querySelector(".message");
+const playerScore = document.querySelector(".playerScore");
+const ComputerScore = document.querySelector(".computerScore");
+const options = document.querySelectorAll(".choices")
+const button = document.querySelector(".button")
 let humanScore = 0
 let computerScore = 0
 
@@ -7,66 +12,74 @@ const getComputerChoice = () => {
     return choices[choice];
 }
 
-const ValidationHumanChoice = humanChoice =>{
-    for(let i = 0; i < choices.length; i++){
-        if(humanChoice === choices[i])
-            return true;
+options.forEach(
+    (option) => {
+    option.addEventListener("click", () =>{
+    let playerChoice = event.target.id
+    if(humanScore === 5 || computerScore === 5)
+        return
+    playGame(playerChoice)
+}
+)
     }
-    return false
-}
+)
 
-const getHumanChoice = () =>{
-    let humanChoice = prompt("Enter your choice (rock, paper, or scissors):").toLowerCase()
-    while (ValidationHumanChoice(humanChoice)  === false)
-        humanChoice = prompt("Try again. Enter your choice (rock, paper, or scissors):").toLowerCase()
-    return humanChoice;
-}
+ const playRound = (humanSelection, computerSelection) =>{
+    console.log(humanSelection)
+    console.log(computerSelection)
+     if(humanSelection == 'rock' && computerSelection == 'scissors'){
+        message.textContent = "You win!! Rock beats scissors"
+         humanScore ++}
+     else if(humanSelection == 'scissors' && computerSelection == 'rock'){
+        message.textContent = "You lose!! Rock beats scissors"
+         computerScore ++}
+     else if(humanSelection == 'paper' && computerSelection == 'rock'){
+        message.textContent = "You win!! Paper beats rock"
+         humanScore ++}       
+     else if(humanSelection == 'rock' && computerSelection == 'paper'){
+        message.textContent = "You lose!! Paper beats rock"
+         computerScore ++}
+     else if(humanSelection == 'scissors' && computerSelection == 'paper'){
+        message.textContent = "You win!! Scissors beats paper"
+         humanScore ++}       
+     else if(humanSelection == 'paper' && computerSelection == 'scissors'){
+        message.textContent ="You lose!! Scissors beats paper"
+         computerScore ++}
+     else{
+        message.textContent ="It's a tie"
+     }
+ }
 
-const playRound = (humanSelection, computerSelection) =>{
-    if(humanSelection == 'rock' && computerSelection == 'scissors'){
-        console.log("You win!! Rock beats scissors")
-        humanScore ++}
-    else if(humanSelection == 'scissors' && computerSelection == 'rock'){
-        console.log("You lose!! Rock beats scissors")
-        computerScore ++}
-    else if(humanSelection == 'paper' && computerSelection == 'rock'){
-        console.log("You win!! Paper beats rock")
-        humanScore ++}       
-    else if(humanSelection == 'rock' && computerSelection == 'paper'){
-        console.log("You lose!! Paper beats rock")
-        computerScore ++}
-    else if(humanSelection == 'scissors' && computerSelection == 'paper'){
-        console.log("You win!! Scissors beats paper")
-        humanScore ++}       
-    else if(humanSelection == 'paper' && computerSelection == 'scissors'){
-        console.log("You lose!! Scissors beats paper")
-        computerScore ++}
-    else{
-        console.log("It's a tie")
-        humanScore ++
-        computerScore ++
-    }
-    console.log(`Your score: ${humanScore}`)
-    console.log(`Computer score: ${computerScore}`)
-}
+const Winner = () =>{
+    const a = document.createElement("a");
+    a.style.padding = "10px";
+    a.textContent = 'Volver a jugar';
+    a.style.textDecoration = "none";
+    a.style.backgroundColor = "yellow";
+    a.style.boxShadow = "rgb(0, 0, 0) 6px 6px";
+    a.style.borderRadius = "10px";
+    a.style.color = "black";
+    a.href = 'index.html';
+    button.appendChild(a);
+};
 
-const totalScore = (humanScore, computerScore) =>{
-    if(humanScore > computerScore)
-        alert(`You've won!!! Your score ${humanScore} / Computer score ${computerScore}`)
-    else if (computerScore > humanScore)
-        alert(`You've lost :( Your score ${humanScore} / Computer score ${computerScore}`)
-    else
-        alert(`It's a tie :| Your score ${humanScore} / Computer score ${computerScore}`)
-}
+ const totalScore = (humanScore, computerScore) =>{
+    if (humanScore == 5 && computerScore == 5){
+        message.textContent =`It's a tie :|`
+        Winner()}
+    else if(humanScore === 5){
+        message.textContent = `You've won!!!`
+        Winner()}
+    else if (computerScore === 5){
+        message.textContent = `You've lost :(`
+        Winner()}
 
-const playGame = () => {
-    for(let i = 1; i <= 5; i++){
-        const humanSelection = getHumanChoice()
-        const computerSelection = getComputerChoice()
-        playRound(humanSelection, computerSelection)
-    }
+ }
 
+const playGame = (playerChoice) => {
+    const computerSelection = getComputerChoice()
+    playRound(playerChoice, computerSelection)
+    playerScore.textContent = `You: ${humanScore}`
+    ComputerScore.textContent = `Computer: ${computerScore}`
     totalScore(humanScore, computerScore)
-}
-
-playGame()
+ }
