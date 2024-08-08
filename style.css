@@ -4,31 +4,34 @@
 body{
     margin: 0;
     height: 100vh;
+    min-height: auto;
     display: flex;
+    flex-direction: column;    
     justify-content: space-between;
-    flex-direction: column;
     font-family:'Press Start 2P', cursive;
-    overflow: hidden;       
+    gap: 12px;
 }
 
 .header,.footer{
-    font-size: 14px;
     background-color: rgba(7, 1, 62, 0.744);
     color: white;
-    text-align: center;
     padding: 6px;
+    text-align: center;
 }
 
 .message{
+    font-size: 28px;
     text-align: center;
+}
+.score{
+    font-size: 18px; 
 }
 
 .content{
     display: flex;
     flex-direction: column;
-    justify-content: center ;
+    justify-content: center;
     gap: 40px;
-    height: 70%;
 }
 
 .options{
@@ -56,4 +59,11 @@ body{
 .score{
     display: flex;
     justify-content: space-evenly;
+}
+
+.button{
+    text-align: center;
+}
+.button:hover{
+    transform: translateY(-10px);
 }
