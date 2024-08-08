@@ -25,8 +25,6 @@ options.forEach(
 )
 
  const playRound = (humanSelection, computerSelection) =>{
-    console.log(humanSelection)
-    console.log(computerSelection)
      if(humanSelection == 'rock' && computerSelection == 'scissors'){
         message.textContent = "You win!! Rock beats scissors"
          humanScore ++}
@@ -53,7 +51,7 @@ options.forEach(
 const Winner = () =>{
     const a = document.createElement("a");
     a.style.padding = "10px";
-    a.textContent = 'Volver a jugar';
+    a.textContent = 'Play again';
     a.style.textDecoration = "none";
     a.style.backgroundColor = "yellow";
     a.style.boxShadow = "rgb(0, 0, 0) 6px 6px";
