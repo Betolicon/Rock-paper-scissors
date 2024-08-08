@@ -53,7 +53,7 @@ const Winner = () =>{
     a.style.padding = "10px";
     a.textContent = 'Play again';
     a.style.textDecoration = "none";
-    a.style.backgroundColor = "yellow";
+    a.style.backgroundColor = "orange";
     a.style.boxShadow = "rgb(0, 0, 0) 6px 6px";
     a.style.borderRadius = "10px";
     a.style.color = "black";
