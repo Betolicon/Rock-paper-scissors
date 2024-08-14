@@ -2,20 +2,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap");
 
 body{
+    height: 100vh;   
     margin: 0;
-    height: 100vh;
     display: flex;
-    flex-direction: column;    
-    justify-content: space-between;
+    flex-direction: column;
     font-family:'Press Start 2P', cursive;
-    gap: 12px;
 }
 
 .header,.footer{
     background-color: rgba(7, 1, 62, 0.744);
     color: white;
     padding: 6px;
-    text-align: center;
+    gap: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 72px;
 }
 
 .message{
@@ -30,7 +32,9 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center; 
+    box-sizing: border-box;
     gap: 40px;
+    flex: 1;
 }
 
 .options{
@@ -48,6 +52,7 @@ body{
     padding: 12px;
     box-shadow: rgb(0, 0, 0) 6px 6px;
     cursor: pointer;
+    height: auto;
 }
 
 .images:hover{
