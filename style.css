@@ -9,7 +9,6 @@ body{
     justify-content: space-between;
     font-family:'Press Start 2P', cursive;
     gap: 12px;
-    overflow: hidden;
 }
 
 .header,.footer{
