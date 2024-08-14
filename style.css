@@ -12,12 +12,16 @@ body{
 .header,.footer{
     background-color: rgba(7, 1, 62, 0.744);
     color: white;
-    padding: 6px;
+    padding: 24px;
     gap: 12px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 72px;
+}
+
+.header{
+    margin-bottom: 14px;
 }
 
 .message{
